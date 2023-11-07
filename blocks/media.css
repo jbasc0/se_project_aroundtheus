@@ -50,7 +50,7 @@
     width: 100%;
   }
 
-  .card__list {
+  .cards__list {
     width: 100%;
     justify-content: center;
   }
@@ -71,7 +71,7 @@
     margin: 0;
   }
 
-  .card__list {
+  .cards__list {
     width: 100%;
     justify-content: center;
   }
