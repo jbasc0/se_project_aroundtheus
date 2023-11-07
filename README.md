@@ -13,4 +13,4 @@
 - hover pseudo classes
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
 
-4. [Link to the project on Github]
+4. [Link to the project on Github](https://github.com/jbasc0/se_project_aroundtheus)
