@@ -70,7 +70,6 @@
 @media screen and (max-width: 905px) {
   .profile__name {
     max-width: 373px;
-    margin: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -118,7 +117,7 @@
   }
 
   .profile__description {
-    width: 100%;
+    max-width: 196px;
     font-size: 14px;
     text-align: center;
     margin: 0 0 36px;
