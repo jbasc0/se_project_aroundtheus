@@ -71,7 +71,6 @@
   .profile__name {
     max-width: 373px;
     margin: 0;
-    height: auto-fit;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -92,7 +91,6 @@
 
 @media screen and (max-width: 600px) {
   .profile {
-    display: flex;
     flex-direction: column;
     max-width: 282px;
   }
