@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 905px) {
+@media screen and (max-width: 775px) {
   .profile__name {
     max-width: 373px;
     text-overflow: ellipsis;
@@ -88,7 +88,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;
     max-width: 282px;
