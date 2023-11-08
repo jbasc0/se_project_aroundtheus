@@ -8,7 +8,7 @@
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 905px) {
   .cards__list {
     width: 100%;
     justify-content: center;
