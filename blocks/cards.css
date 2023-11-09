@@ -8,16 +8,9 @@
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 880px) {
   .cards__list {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .cards__list {
-    padding-left: 0;
-    padding-right: 0;
+    width: 100%;
+    justify-content: center;
   }
 }
