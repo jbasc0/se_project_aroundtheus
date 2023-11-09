@@ -9,10 +9,18 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 900px) {
+  .footer__content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .footer__content {
     max-width: 282px;
     margin: 48px auto 36px auto;
     font-size: 14px;
+    padding: 0;
   }
 }

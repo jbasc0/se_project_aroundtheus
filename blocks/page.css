@@ -1,5 +1,5 @@
 .page {
-  background-color: black;
+  background-color: #000000;
   color: white;
 }
 
@@ -7,8 +7,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .page__section {
@@ -22,11 +20,5 @@
   .page__content {
     max-width: 775px;
     margin: auto;
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .page__section {
-    max-width: 320px;
   }
 }

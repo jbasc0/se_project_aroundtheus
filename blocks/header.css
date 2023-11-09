@@ -7,7 +7,19 @@
   padding-bottom: 41px;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 900px) {
+  .header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .header__logo {
     max-width: 126px;
     margin: 28px auto 32px 27px;
