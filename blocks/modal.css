@@ -37,6 +37,11 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.modal__close:hover {
+  opacity: 60%;
 }
 
 .modal__heading {
@@ -65,6 +70,7 @@
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .modal__name {
