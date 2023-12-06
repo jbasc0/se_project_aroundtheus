@@ -66,4 +66,10 @@
   padding: 0;
   margin: 18px 15px 244px 249px;
   position: absolute;
+  transition: opacity 0.5s;
+}
+
+.card__delete-button:hover {
+  opacity: 50%;
+  cursor: pointer;
 }
