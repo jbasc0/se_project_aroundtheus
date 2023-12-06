@@ -45,8 +45,10 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const cardPreviewCloseButton = cardPreviewModal.querySelector(".modal__close");
-const cardPreviewImage = document.querySelector(".preview__image");
-const cardPreviewDescription = document.querySelector(".preview__description");
+const cardPreviewImage = document.querySelector(".modal__preview_image");
+const cardPreviewDescription = document.querySelector(
+  ".modal__preview_description"
+);
 
 //formdata
 const profileNameInput = profileFormElement.querySelector(
