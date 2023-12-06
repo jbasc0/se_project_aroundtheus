@@ -10,6 +10,10 @@
   border-top-right-radius: 10px;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__description {
   display: flex;
   max-width: 282px;
@@ -34,14 +38,32 @@
 }
 
 .card__like-button {
-  background: url(../images/heart.svg) center no-repeat;
+  background: url(../images/heart\ inactive.svg) center no-repeat;
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
   transition: opacity 0.5s;
+}
+
+.card__like-button_active {
+  background-image: url(../images/heart\ active.svg);
 }
 
 .card__like-button:hover {
   opacity: 50%;
   cursor: pointer;
+}
+
+.card__delete-button {
+  background: url(../images/trash.svg);
+  background-color: transparent;
+  width: 21px;
+  height: 18px;
+  background-size: 21px 18px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 18px 15px 244px 249px;
+  position: absolute;
 }

@@ -1,0 +1,12 @@
+.preview__image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.preview__description {
+  color: #fff;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 10px auto 0 0;
+}
