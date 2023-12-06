@@ -97,7 +97,7 @@
   margin-bottom: 0;
 }
 
-.modal__preview_content {
+.modal__container_content {
   background: none;
   display: flex;
   flex-direction: column;
