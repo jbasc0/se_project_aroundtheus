@@ -69,10 +69,6 @@ function closeModal(modal) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
-function renderCard(cardData, cardsWrap) {
-  const cardElement = getCardElement(cardData);
-  cardsWrap.prepend(cardElement);
-}
 function fillProfileForm() {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
