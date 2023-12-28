@@ -63,11 +63,19 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 //functions
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+    closeModal(openedPopup);
+  }
+}
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
 }
 function fillProfileForm() {
   profileName.textContent = profileNameInput.value;
@@ -113,6 +121,18 @@ function getCardElement(cardData) {
   });
   return cardElement;
 }
+
+//close by overlay
+[editProfileModal, addCardModal, cardPreviewModal].forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (
+      evt.target.classList.contains("modal") ||
+      evt.target.classList.contains("modal__close")
+    ) {
+      closeModal(modal);
+    }
+  });
+});
 
 //event listeners
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
