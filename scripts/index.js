@@ -122,7 +122,7 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-//close by overlay
+//close modals
 [editProfileModal, addCardModal, cardPreviewModal].forEach((modal) => {
   modal.addEventListener("click", (evt) => {
     if (
@@ -142,16 +142,7 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   openModal(editProfileModal);
 });
-profileModalCloseButton.addEventListener("click", () =>
-  closeModal(editProfileModal)
-);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
-cardPreviewCloseButton.addEventListener("click", () =>
-  closeModal(cardPreviewModal)
-);
 
 //for loop to insert cards
 initialCards.forEach((cardData) => {
