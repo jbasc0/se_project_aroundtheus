@@ -122,8 +122,16 @@
     <div class="modal" id="preview-image-modal">
       <div class="modal__container modal__container_content">
         <button type="button" class="modal__close" id="close-preview"></button>
-        <img class="modal__preview modal__preview_image" alt="" src="#" />
-        <p class="modal__preview modal__preview_description"></p>
+        <img
+          class="modal__preview modal__preview_image"
+          id="preview-image"
+          alt=""
+          src="#"
+        />
+        <p
+          class="modal__preview modal__preview_description"
+          id="preview-description"
+        ></p>
       </div>
     </div>
     <template id="card-template">
@@ -136,7 +144,6 @@
         </div>
       </li>
     </template>
-    <script src="./scripts/index.js" defer></script>
-    <script src="./scripts/validation.js" defer></script>
+    <script src="./pages/index.js" type="module" defer></script>
   </body>
 </html>
