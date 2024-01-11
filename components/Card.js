@@ -14,7 +14,7 @@ export default class Card {
       this._handleDeleteCard();
     });
     this._cardImageEl.addEventListener("click", () => {
-      this._handleImageClick();
+      this._handleImageClick(this);
     });
   }
 

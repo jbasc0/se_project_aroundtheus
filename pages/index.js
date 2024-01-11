@@ -61,10 +61,10 @@ const cardTitleInput = addCardFormElement.querySelector(
 const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 
 //functions
-function handleImageClick() {
-  cardPreviewImage.src = this.link;
-  cardPreviewImage.alt = this.name;
-  cardPreviewDescription.textContent = this.name;
+function handleImageClick(data) {
+  cardPreviewImage.src = data.link;
+  cardPreviewImage.alt = data.name;
+  cardPreviewDescription.textContent = data.name;
   openModal(cardPreviewModal);
 }
 function handleEscape(evt) {
