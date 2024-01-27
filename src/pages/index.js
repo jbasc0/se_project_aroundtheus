@@ -1,8 +1,3 @@
-// Hello code reviewer,
-// I'm still trying to refactor, but I'm having trouble getting the save buttons to work
-// on my edit profile modal and add new card modal. I was hoping you can point me in the right
-// direction?
-
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import "./index.css";
@@ -65,10 +60,8 @@ function handleProfileEditOpen() {
   profileFormPopup.open();
 }
 
-function handleProfileEditSubmit() {
-  const info = userInfo.setUserInfo();
-  profileName.value = info.name;
-  profileDescription.value = info.job;
+function handleProfileEditSubmit(data) {
+  userInfo.setUserInfo(data);
   profileFormValidator.resetValidation();
   profileFormPopup.close();
 }
