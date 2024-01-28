@@ -61,7 +61,7 @@ function handleProfileEditOpen() {
 }
 
 function handleProfileEditSubmit(data) {
-  userInfo.setUserInfo(data);
+  userInfo.setUserInfo({ name: data.name, job: data.description });
   profileFormValidator.resetValidation();
   profileFormPopup.close();
 }
