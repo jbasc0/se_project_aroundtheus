@@ -73,7 +73,8 @@ const newCardPopup = new PopupWithForm(
 newCardPopup.setEventListeners();
 
 function handleAddNewCardSubmit(data) {
-  cardSection.addItems(createCard(data));
+  const card = createCard({ name: data.name, link: data.url });
+  cardSection.addItems(card);
   cardFormValidator.resetValidation();
   newCardPopup.close();
 }
