@@ -2,7 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import "./index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImages from "../components/PopupWithImages.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import {
@@ -29,13 +29,13 @@ import {
 const cardSection = new Section(
   {
     items: initialCards,
-    renderer: (data) => cardSection.addItems(createCard(data)),
+    renderer: (data) => cardSection.addItem(createCard(data)),
   },
   cardsWrap
 );
 cardSection.renderItems();
 
-const popupImage = new PopupWithImages("#preview-image-modal");
+const popupImage = new PopupWithImage("#preview-image-modal");
 popupImage.setEventListeners();
 
 const handleImageClick = (cardData) => {
@@ -74,8 +74,8 @@ newCardPopup.setEventListeners();
 
 function handleAddNewCardSubmit(data) {
   const card = createCard({ name: data.name, link: data.url });
-  cardSection.addItems(card);
-  cardFormValidator.resetValidation();
+  cardSection.addItem(card);
+  // cardFormValidator.resetValidation();
   newCardPopup.close();
 }
 function createCard(cardData) {
@@ -90,10 +90,10 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
 });
 
-const cardFormValidator = new FormValidator(config, addCardModal);
+const cardFormValidator = new FormValidator(config, addCardFormElement);
 cardFormValidator.enableValidation();
 
-const profileFormValidator = new FormValidator(config, editProfileModal);
+const profileFormValidator = new FormValidator(config, profileFormElement);
 profileFormValidator.enableValidation();
 
 // const initialCards = [
