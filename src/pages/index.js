@@ -91,10 +91,10 @@ function createCard(cardData) {
           });
       }
     },
-    handleDeleteClick: () => {
+    handleDeleteClick: (data) => {
       popupConfirm.open();
       api
-        .deleteCard(card._cardId)
+        .deleteCard(data._cardId)
         .then(card.handleDeleteCard(card))
         .then(popupConfirm.close())
         .catch((err) => {
@@ -140,8 +140,8 @@ newCardPopup.setEventListeners();
 function handleAddNewCardSubmit(data) {
   const card = createCard({ name: data.name, link: data.url });
   cardSection.addItem(card);
-  api.createCard(card).catch((err) => {
-    console.error(error);
+  api.createCard(data).catch((err) => {
+    console.error(err);
   });
   // cardFormValidator.resetValidation();
   newCardPopup.close();

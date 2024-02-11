@@ -40,8 +40,8 @@ export default class Api {
   }
   createCard(data) {
     return fetch(this._baseUrl + "/cards", {
-      headers: this._headers,
       method: "POST",
+      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link,
