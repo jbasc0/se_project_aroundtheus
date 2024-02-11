@@ -27,7 +27,7 @@ export default class PopupWithForm extends Popup {
     if (submit) {
       this._submitButton.textContent = submitText;
     } else {
-      this._submitButton.textContent = this._submitButton.textContent;
+      this._submitButton.textContent = "Save";
     }
   }
 }
