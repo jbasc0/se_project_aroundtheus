@@ -44,7 +44,7 @@ export default class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
-        link: data.link,
+        link: data.url,
       }),
     }).then(this._handleResponse);
   }
@@ -60,13 +60,13 @@ export default class Api {
     }).then(this._handleResponse);
   }
   addLikes(cardId) {
-    return fetch(this._baseUrl + "/cards/likes/" + cardId, {
+    return fetch(this._baseUrl + "/cards/" + cardId + "/likes", {
       method: "PUT",
       headers: this._headers,
     }).then(this._handleResponse);
   }
-  removeLikes() {
-    return fetch(this._baseUrl + "/cards/likes/" + cardId, {
+  removeLikes(cardId) {
+    return fetch(this._baseUrl + "/cards/" + cardId + "/likes", {
       method: "DELETE",
       headers: this._headers,
     }).then(this._handleResponse);

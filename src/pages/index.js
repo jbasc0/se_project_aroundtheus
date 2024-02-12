@@ -33,7 +33,7 @@ import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 
 const api = new Api("https://around-api.en.tripleten-services.com/v1", {
-  authorization: "1e84d1fd-d7c2-4563-8c99-5495b302c1ca",
+  authorization: "e69a27da-dc53-443d-82b8-45bb5893f88e",
   "Content-Type": "application/json",
 });
 
@@ -65,26 +65,30 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 
 function createCard(cardData) {
   const card = new Card({
-    cardData: { ...cardData, userId },
+    cardData: { ...cardData },
+    userId: userId,
     cardSelector: "#card-template",
     handleImageClick: () => {
       popupImage.open(cardData);
     },
     handleLikeClick: (data) => {
-      if (data.isLiked()) {
+      if (!data._likeStatus) {
         api
-          .removeLikes(data._cardId)
-          .then((res) => {
-            card.showLikes(res.likes);
+          .addLikes(data._cardId)
+          .then((data._likeStatus = true))
+          .then(() => {
+            card.showLikes();
           })
           .catch((err) => {
             console.error(err);
           });
+        // .finally(() => (data._likeStatus = false));
       } else {
         api
-          .addLikes(data._cardId)
-          .then((res) => {
-            card.showLikes(res.likes);
+          .removeLikes(data._cardId)
+          .then((data._likeStatus = false))
+          .then(() => {
+            card.showLikes();
           })
           .catch((err) => {
             console.error(err);
@@ -95,8 +99,8 @@ function createCard(cardData) {
       popupConfirm.open();
       api
         .deleteCard(data._cardId)
-        .then(card.handleDeleteCard(card))
-        .then(popupConfirm.close())
+        .then(() => card.handleDeleteCard(card))
+        .then(() => popupConfirm.close())
         .catch((err) => {
           console.error(err);
         });
@@ -139,12 +143,17 @@ newCardPopup.setEventListeners();
 
 function handleAddNewCardSubmit(data) {
   const card = createCard({ name: data.name, link: data.url });
-  cardSection.addItem(card);
-  api.createCard(data).catch((err) => {
-    console.error(err);
-  });
+  newCardPopup.submitText("Saving...");
+  api
+    .createCard(data)
+    .then(() => cardSection.addItem(card))
+    .then(() => newCardPopup.close())
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => newCardPopup.submitText("Save"));
+
   // cardFormValidator.resetValidation();
-  newCardPopup.close();
 }
 
 const newAvatarPopup = new PopupWithForm(
