@@ -33,12 +33,16 @@ export const profileFormElement =
   editProfileModal.querySelector(".modal__form");
 export const addCardFormElement = addCardModal.querySelector(".modal__form");
 export const cardPreviewModal = document.querySelector("#preview-image-modal");
+export const avatarModal = document.querySelector("#avatar-modal");
+export const avatarFormElement = avatarModal.querySelector(".modal__form");
 
 //buttons and other DOM nodes
 export const profileEditButton = document.querySelector(
   ".profile__edit-button"
 );
 export const profileName = document.querySelector(".profile__name");
+export const profileImage = document.querySelector(".profile__image");
+export const avatarButton = document.querySelector(".profile__avatar-button");
 export const profileDescription = document.querySelector(
   ".profile__description"
 );
