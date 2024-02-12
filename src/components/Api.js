@@ -30,7 +30,7 @@ export default class Api {
     }).then(this._handleResponse);
   }
   editAvatar(data) {
-    return fetch(this._baseUrl + "/users/me", {
+    return fetch(this._baseUrl + "/users/me/avatar", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

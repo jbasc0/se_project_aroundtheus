@@ -165,8 +165,17 @@ const newAvatarPopup = new PopupWithForm(
 newAvatarPopup.setEventListeners();
 
 function handleNewAvatarSubmit(data) {
-  profileImage.src = data.avatar;
-  newAvatarPopup.close();
+  api
+    .editAvatar(data.avatar)
+    .then(() => {
+      profileImage.src = data.avatar;
+    })
+    .then(() => {
+      newAvatarPopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 // Event Listeners
