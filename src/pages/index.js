@@ -33,7 +33,7 @@ import Api from "../components/Api.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 
 const api = new Api("https://around-api.en.tripleten-services.com/v1", {
-  authorization: "1e84d1fd-d7c2-4563-8c99-5495b302c1ca",
+  authorization: "512a128b-82de-4bd2-97f6-dac56844ca50",
   "Content-Type": "application/json",
 });
 
@@ -138,8 +138,9 @@ const newCardPopup = new PopupWithForm(
 newCardPopup.setEventListeners();
 
 function handleAddNewCardSubmit(data) {
-  const card = createCard({ name: data.name, link: data.url });
-  cardSection.addItem(card);
+  // const cardId = userId;
+  // const card = createCard({ name: data.name, link: data.url }, cardId);
+  // cardSection.addItem(card);
   api.createCard(data).catch((err) => {
     console.error(err);
   });

@@ -8,7 +8,7 @@ export default class Card {
   }) {
     this._name = cardData.name;
     this._link = cardData.link;
-    this._cardId = cardData._id;
+    this._cardId = cardData._id || cardData.userId;
     this._likeStatus = cardData.isLiked;
     this._userId = cardData.userId;
     this._cardSelector = cardSelector;
@@ -19,7 +19,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick();
+      this._handleLikeClick(this);
     });
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteClick(this);
