@@ -97,13 +97,15 @@ function createCard(cardData) {
     },
     handleDeleteClick: (data) => {
       popupConfirm.open();
-      api
-        .deleteCard(data._cardId)
-        .then(() => card.handleDeleteCard(card))
-        .then(() => popupConfirm.close())
-        .catch((err) => {
-          console.error(err);
-        });
+      popupConfirm.confirmDelete(() => {
+        api
+          .deleteCard(data._cardId)
+          .then(() => card.handleDeleteCard(card))
+          .then(() => popupConfirm.close())
+          .catch((err) => {
+            console.error(err);
+          });
+      });
     },
   });
   return card.getView();
