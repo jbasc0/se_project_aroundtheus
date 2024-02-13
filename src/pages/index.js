@@ -135,9 +135,10 @@ function handleProfileEditSubmit(data) {
   profileFormPopup.submitText("Saving...");
   api
     .editUserInfo(data)
-    .then((data) =>
-      userInfo.setUserInfo({ name: data.name, job: data.description })
-    )
+    .then((data) => {
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+    })
     .catch((err) => {
       console.error(err);
     })

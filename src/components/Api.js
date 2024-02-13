@@ -19,13 +19,13 @@ export default class Api {
       headers: this._headers,
     }).then(this._handleResponse);
   }
-  editUserInfo() {
+  editUserInfo(data) {
     return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
-        about: data.about,
+        about: data.description,
       }),
     }).then(this._handleResponse);
   }
