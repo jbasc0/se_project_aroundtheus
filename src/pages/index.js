@@ -144,11 +144,12 @@ const newCardPopup = new PopupWithForm(
 newCardPopup.setEventListeners();
 
 function handleAddNewCardSubmit(data) {
-  const card = createCard({ name: data.name, link: data.url });
+  // const card = createCard({ name: data.name, link: data.url });
   newCardPopup.submitText("Saving...");
   api
     .createCard(data)
-    .then(() => cardSection.addItem(card))
+    .then((data) => createCard(data))
+    .then((data) => cardSection.addItem(data))
     .then(() => newCardPopup.close())
     .catch((err) => {
       console.error(err);
