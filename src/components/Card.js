@@ -10,7 +10,6 @@ export default class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardId = cardData._id;
-    this._likeStatus = false;
     this._userId = userId;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
@@ -41,6 +40,7 @@ export default class Card {
     this._likes = [];
     if (this._likeStatus) {
       this._likeButton.classList.add("card__like-button_active");
+      this._likes = [this._cardId];
     } else {
       this._likeButton.classList.remove("card__like-button_active");
     }

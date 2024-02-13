@@ -132,9 +132,19 @@ function handleProfileEditOpen() {
 }
 
 function handleProfileEditSubmit(data) {
-  userInfo.setUserInfo({ name: data.name, job: data.description });
-  profileFormValidator.resetValidation();
-  profileFormPopup.close();
+  profileFormPopup.submitText("Saving...");
+  api
+    .editUserInfo(data)
+    .then((data) =>
+      userInfo.setUserInfo({ name: data.name, job: data.description })
+    )
+    .catch((err) => {
+      console.error(err);
+    })
+    // userInfo.setUserInfo({ name: data.name, job: data.description });
+    .then(() => profileFormValidator.resetValidation())
+    .then(() => profileFormPopup.close())
+    .finally(() => profileFormPopup.submitText("Save"));
 }
 
 const newCardPopup = new PopupWithForm(
@@ -166,6 +176,7 @@ const newAvatarPopup = new PopupWithForm(
 newAvatarPopup.setEventListeners();
 
 function handleNewAvatarSubmit(data) {
+  newAvatarPopup.submitText("Saving...");
   api
     .editAvatar(data)
     .then(() => {
@@ -176,7 +187,8 @@ function handleNewAvatarSubmit(data) {
     })
     .catch((err) => {
       console.error(err);
-    });
+    })
+    .finally(() => newAvatarPopup.submitText("Save"));
 }
 
 // Event Listeners

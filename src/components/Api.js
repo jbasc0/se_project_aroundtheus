@@ -19,7 +19,7 @@ export default class Api {
       headers: this._headers,
     }).then(this._handleResponse);
   }
-  editUserInfo(data) {
+  editUserInfo() {
     return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
@@ -51,11 +51,6 @@ export default class Api {
   deleteCard(cardId) {
     return fetch(this._baseUrl + "/cards/" + cardId, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._handleResponse);
-  }
-  showLikes(cardId) {
-    return fetch(this._baseUrl + "/cards/likes/" + cardId, {
       headers: this._headers,
     }).then(this._handleResponse);
   }
