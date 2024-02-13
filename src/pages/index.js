@@ -167,7 +167,7 @@ newAvatarPopup.setEventListeners();
 
 function handleNewAvatarSubmit(data) {
   api
-    .editAvatar(data.avatar)
+    .editAvatar(data)
     .then(() => {
       profileImage.src = data.avatar;
     })
