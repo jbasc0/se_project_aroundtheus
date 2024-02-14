@@ -135,11 +135,11 @@ function handleProfileEditSubmit(data) {
   profileFormPopup.submitText("Saving...");
   api
     .editUserInfo(data)
-    .then((data) => {
+    .then((userData) => {
       userInfo.setUserInfo({
-        name: data.name,
-        job: data.about,
-        avatar: data.avatar,
+        name: userData.name,
+        job: userData.about,
+        avatar: userData.avatar,
       });
     })
     // userInfo.setUserInfo({ name: data.name, job: data.description });
@@ -182,10 +182,10 @@ function handleNewAvatarSubmit(data) {
   newAvatarPopup.submitText("Saving...");
   api
     .editAvatar(data)
-    .then(() => {
+    .then((data) => {
       userInfo.setUserInfo({
-        name: profileName.textContent,
-        job: profileDescription.textContent,
+        name: data.name,
+        job: data.about,
         avatar: data.avatar,
       });
     })
