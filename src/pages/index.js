@@ -182,11 +182,11 @@ function handleNewAvatarSubmit(data) {
   newAvatarPopup.submitText("Saving...");
   api
     .editAvatar(data)
-    .then((data) => {
+    .then((userData) => {
       userInfo.setUserInfo({
-        name: data.name,
-        job: data.about,
-        avatar: data.avatar,
+        name: userData.name,
+        job: userData.about,
+        avatar: userData.avatar,
       });
     })
     .then(() => {
