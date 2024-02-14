@@ -18,19 +18,22 @@
       </header>
       <main>
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau avatar"
-            class="profile__image"
-          />
+          <div class="profile__avatar">
+            <button
+              class="profile__avatar-button"
+              id="avatar-button"
+              type="button"
+            ></button>
+            <img src="" alt="" class="profile__image" />
+          </div>
           <div class="profile__info">
-            <h1 class="profile__name">Jacques Cousteau</h1>
+            <h1 class="profile__name"></h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -133,13 +136,51 @@
         ></p>
       </div>
     </div>
+    <!--Confirm Modal-->
+    <div class="modal" id="confirm-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close" id="close-confirm"></button>
+        <form class="modal__form">
+          <h3 class="modal__heading">Are you sure?</h3>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+    <!--Avatar Modal-->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button" id="avatar-close"></button>
+        <h3 class="modal__heading">Change Profile Picture</h3>
+        <form class="modal__form" id="avatar-form">
+          <input
+            type="url"
+            name="avatar"
+            id="avatar-input"
+            class="modal__input modal__input_type_avatar"
+            placeholder="Image URL"
+            required
+          />
+          <span class="modal__error" id="avatar-input-error"></span>
+          <button
+            type="submit"
+            id="avatar-submit"
+            class="modal__button modal__button_disabled"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
     <template id="card-template">
       <li class="card">
         <img src="" alt="" class="card__image" />
         <button type="button" class="card__delete-button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <div class="card__likes">
+            <button class="card__like-button" type="button"></button>
+            <p class="card__like-counter"></p>
+          </div>
         </div>
       </li>
     </template>
