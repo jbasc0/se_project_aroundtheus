@@ -136,8 +136,11 @@ function handleProfileEditSubmit(data) {
   api
     .editUserInfo(data)
     .then((data) => {
-      profileName.textContent = data.name;
-      profileDescription.textContent = data.about;
+      userInfo.setUserInfo({
+        name: data.name,
+        job: data.about,
+        avatar: data.avatar,
+      });
     })
     // userInfo.setUserInfo({ name: data.name, job: data.description });
     .then(() => profileFormPopup.close())

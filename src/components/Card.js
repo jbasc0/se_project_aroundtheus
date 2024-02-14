@@ -11,7 +11,7 @@ export default class Card {
     this._link = cardData.link;
     this.cardId = cardData._id;
     this._userId = userId;
-    this.likeStatus = false;
+    this.likeStatus = cardData.isLiked;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleLikeClick = handleLikeClick;
