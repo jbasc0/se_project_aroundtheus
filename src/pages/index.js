@@ -72,10 +72,10 @@ function createCard(cardData) {
       popupImage.open(cardData);
     },
     handleLikeClick: (data) => {
-      if (!data._likeStatus) {
+      if (!data.likeStatus) {
         api
-          .addLikes(data._cardId)
-          .then((data._likeStatus = true))
+          .addLikes(data.cardId)
+          .then(() => (data.likeStatus = true))
           .then(() => {
             card.showLikes();
           })
@@ -85,8 +85,8 @@ function createCard(cardData) {
         // .finally(() => (data._likeStatus = false));
       } else {
         api
-          .removeLikes(data._cardId)
-          .then((data._likeStatus = false))
+          .removeLikes(data.cardId)
+          .then(() => (data.likeStatus = false))
           .then(() => {
             card.showLikes();
           })
@@ -99,7 +99,7 @@ function createCard(cardData) {
       popupConfirm.open();
       popupConfirm.confirmDelete(() => {
         api
-          .deleteCard(data._cardId)
+          .deleteCard(data.cardId)
           .then(() => card.handleDeleteCard(card))
           .then(() => popupConfirm.close())
           .catch((err) => {
@@ -139,12 +139,11 @@ function handleProfileEditSubmit(data) {
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
     })
+    // userInfo.setUserInfo({ name: data.name, job: data.description });
+    .then(() => profileFormPopup.close())
     .catch((err) => {
       console.error(err);
     })
-    // userInfo.setUserInfo({ name: data.name, job: data.description });
-    .then(() => profileFormValidator.resetValidation())
-    .then(() => profileFormPopup.close())
     .finally(() => profileFormPopup.submitText("Save"));
 }
 
@@ -181,7 +180,11 @@ function handleNewAvatarSubmit(data) {
   api
     .editAvatar(data)
     .then(() => {
-      profileImage.src = data.avatar;
+      userInfo.setUserInfo({
+        name: profileName.textContent,
+        job: profileDescription.textContent,
+        avatar: data.avatar,
+      });
     })
     .then(() => {
       newAvatarPopup.close();
